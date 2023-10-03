@@ -10,16 +10,24 @@ function App() {
   
 
   function addValue() {
-    console.log("value added", Math.random());
+    // console.log("value added", Math.random());
+
+    if(counter<20){
     // counter = counter+1;
     setCounter(counter +1);
     console.log(counter)
+    }
   }
 
   function removeValue(){
-     setCounter(counter =counter-1)
-  }
+
+// logic was that if counter value should not be negetive
+    if (counter>0){
+      setCounter(counter =counter-1);
+    }
+    //  setCounter(counter =counter-1)
   
+}
 
   return (
     <>
