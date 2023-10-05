@@ -1,4 +1,4 @@
-import { useState,useCallback } from 'react'
+import { useState,useCallback , useEffect, useRef} from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -9,34 +9,45 @@ function App() {
   const [numberAllowed, setNumberAllowed]=useState(false)
   const [charAllowed,setCharAllowed]=useState(false)
   const [Password,setPassword]=useState("")
+// useRef hook
+  const passwordRef = useRef(null);
   const passwordGeneraor = useCallback(()=>{
+
 
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    if(numberAllowed)
+    if(charAllowed)
     {str += '~`!@#$%^&*()_-{}[]:;/><,.|?';}
-    if(charAllowed) 
+    if(numberAllowed) 
     {str += '1234567890';}
     
     for (let index = 1; index <= length; index++) {
       
       let char = Math.floor(Math.random()*str.length + 1);
       
-      pass = str.charAt(char)
+      pass = str.charAt(char)+pass
       
     }
     setPassword(pass);
     
+// yha i have to understand y i set setPassword dependency
+  }, [length, numberAllowed, charAllowed, setPassword]);
 
-  }, [length, numberAllowed, charAllowed, setPassword])
+  const copyPasswordOnClick = useCallback(()=> {
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0,100);
+    window.navigator.clipboard.writeText(Password)
+  }, [Password])
 
   // passwordGeneraor(); we can not call it directly like this  we need to study one more hook
 
   // variable and defauld value printing in console //////////////
   console.log(length,numberAllowed,charAllowed,Password);
 
-
+useEffect(()=> {
+  passwordGeneraor();
+}, [length,numberAllowed,charAllowed,passwordGeneraor])
 
   return (
     <>
@@ -48,8 +59,10 @@ function App() {
           className='outline-none w-full py-1 px-3'
           placeholder='password'
           readOnly
+          ref={passwordRef}
           />
-          <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy</button>
+          <button onClick={copyPasswordOnClick} 
+          className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy</button>
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex item-center gap-x-1'>
@@ -68,7 +81,7 @@ function App() {
             <input
              type="checkbox" 
              defaultChecked={numberAllowed}
-             id='numberInput'
+             id=''
              onChange={()=>
               // hame yha previous value ka acsess milta hai prev = previous value
               {setNumberAllowed((prev)=>!prev)}}
@@ -78,12 +91,12 @@ function App() {
              <input
              type="checkbox" 
              defaultChecked={charAllowed}
-             id='numberInput'
+             id=''
              onChange={()=>
               // hame yha previous value ka acsess milta hai prev = previous value
               {setCharAllowed((prev)=>!prev)}}
              />
-             <label>Alphabets</label>
+             <label>Special Char</label>
           </div>
         </div>
       </div>
