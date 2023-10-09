@@ -44,7 +44,10 @@ const router =createBrowserRouter(
 <Route path='' element={<Home/>}/>
 <Route path='about' element={<About/>}/>
 <Route path='user/:userid' element={<User/>}/>
-<Route path='github' element={<Github/>}/>
+<Route 
+
+path='github' 
+element={<Github/>}/>
 
 
 </Route>
