@@ -1,6 +1,8 @@
 // import React from 'react'
 
-function Card({username,btnText,src}) {
+// props pass in card is object thats why it is in {} 
+// now i understand why crio vale using props.something because its an object
+function Card({username,btnText,src,work}) {
 
   return (
     <>
@@ -9,7 +11,7 @@ function Card({username,btnText,src}) {
   <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
     <blockquote>
       <p className="text-lg font-medium">
-        “Tailwind CSS is the only framework that I've seen scale
+        “Tailwind CSS is the only framework that I have seen scale
         on large teams. It’s easy to customize, adapts to any design,
         and the build size is tiny.”
       </p>
@@ -19,7 +21,7 @@ function Card({username,btnText,src}) {
         {username}
       </div>
       <div className="text-slate-700 dark:text-slate-500">
-        Staff Engineer, Algolia
+        {work}
       </div>
       <button className="bg-green-400">{btnText || "visit me"}</button>
     </figcaption>

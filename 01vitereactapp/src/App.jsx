@@ -1,13 +1,17 @@
 import Chai from "./Chai";
 import Hello from "./Hello";
 function App() {
-  const variable = "hello";
 
+  const variable = "hello";
+// curly bracese to acess variables
   return (
     <>
       <Chai />
       <Hello />
-      {variable}
+      
+      <h1>{variable}</h1>
+      {variable} 
+      
     </>
   );
 }
