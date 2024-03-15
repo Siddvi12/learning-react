@@ -1,16 +1,15 @@
-import Chai from "./Chai"
-
+import Chai from "./Chai";
+import Hello from "./Hello";
 function App() {
-  
-const variable ='hello';
+  const variable = "hello";
 
   return (
     <>
-    <Chai/>
-    {variable}
+      <Chai />
+      <Hello />
+      {variable}
     </>
-    
-  )
+  );
 }
 
-export default App
+export default App;
