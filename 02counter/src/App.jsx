@@ -19,8 +19,28 @@ function App() {
     if(counter<20){
     // counter = counter+1; yha console log krne pe value to increase ho rhi hai but not showing in UI or on screen becoz yr to js hi hai but why not showing on screen UI updation
     // setCounter(counter); esa bhi likha ja skta tha
-    setCounter(counter +1);
+    // setCounter(counter +1);
+    // setCounter(counter +1);
+    // setCounter(counter +1);
+// this way only increase only +1
+    setCounter((prevCounter)=> prevCounter +1);
+    setCounter((prevCounter)=> prevCounter +1);
+    setCounter((prevCounter)=> prevCounter +1);
+    // this way it will inctrease +3
+
+
+    // this is the main syntex
+    // setCounter((prevounter)=>{
+    //  prevCounter +1
+    // })
     // setCounter(counter+2)
+    // setCounter overwrite means it only print last value for ex
+    // 1.setCounter(counter+2)
+    // 2.setCounter(counter +1); this will be printed only means only +1 not +2
+// but esa hota ku hai?
+//
+
+
     console.log(counter)
     }
   }
