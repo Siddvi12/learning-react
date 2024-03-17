@@ -16,12 +16,12 @@ function App() {
           <button
             onClick={() => setColor("red")}
             className="outline-none  px-4 py-1 rounded-full text-white shadow-lg"
-            style={{ backgroundColor: "red" }}
+            style={{ backgroundColor: "red" }} // style is always in double curly braces
           >
             Red
           </button>
           <button
-            onClick={() => setColor("black")}
+            onClick={() => setColor("black")} // onClick ko function chiye but setColor ko parameter lena hai isiliye hame call back lena padega otherwise we dont need call back
             className="outline-none  px-4 py-1 rounded-full text-white shadow-lg"
             style={{ backgroundColor: "black" }}
           >
