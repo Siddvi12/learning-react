@@ -1,7 +1,16 @@
-notes for currency converter app
-api link
+# notes for currency converter app
+
+## api link
+
+```javascript
 let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`
-input box
+
+```
+
+## input box
+
+```javascript
+
 function InputBox({
     label,
     
@@ -40,7 +49,13 @@ function InputBox({
 }
 
 export default InputBox;
-app js
+
+```
+
+
+## app js
+
+```javascript
 function App() {
     
 
@@ -88,3 +103,5 @@ function App() {
             </div>
         </div>
     );
+
+```
