@@ -8,7 +8,7 @@ function Profile() {
 
 
   return (
-    <div>Welcome {user.username}</div>
+    <div>Welcome {user.username}|| password:{user.password}||{user.password1}</div>
   )
 }
 
