@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  
   const [color, setColor] = useState("Teal");
 
   return (
@@ -14,14 +15,14 @@ function App() {
       <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
         <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-2xl">
           <button
-            onClick={() => setColor("red")}
+            onClick={() => setColor(()=>"red")} // call back method to change color
             className="outline-none  px-4 py-1 rounded-full text-white shadow-lg"
             style={{ backgroundColor: "red" }} // style is always in double curly braces
           >
             Red
           </button>
           <button
-            onClick={() => setColor("black")} // onClick ko function chiye but setColor ko parameter lena hai isiliye hame call back lena padega otherwise we dont need call back
+            onClick={() => setColor("black")} // onClick ko function chiye but setColor already ek function hota hai jo ki parameter le bhi sakta hai aur nhi bhi aur hame setColor me previous state ka acess milta hai , otherwise we dont need call back
             className="outline-none  px-4 py-1 rounded-full text-white shadow-lg"
             style={{ backgroundColor: "black" }}
           >
